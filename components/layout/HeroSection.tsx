@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col items-center gap-x-4 max-md:mt-5 md:flex-row md:justify-between">
       <div className="max-w-sm max-md:text-center md:max-w-xl">
-        <h1 className="text-4xl font-semibold">
+        <h1 className="text-2xl font-semibold md:text-4xl">
           Take Control of Your{" "}
           <span className="bg-gradient-to-tr from-accent/50 to-accent bg-clip-text text-transparent">
             Passwords
