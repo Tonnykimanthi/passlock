@@ -2,7 +2,7 @@
 
 import { navList } from "@/data/navList";
 import Link from "next/link";
-import LoginButton from "../common/LoginButton";
+import LoginButton from "../ui/LoginButton";
 import { RiMenu3Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
@@ -11,11 +11,11 @@ const Header = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const handleOpenNav = () => {
-    setNavIsOpen(true)
-  }
+    setNavIsOpen(true);
+  };
   const handleCloseNav = () => {
-    setNavIsOpen(false)
-  }
+    setNavIsOpen(false);
+  };
 
   return (
     <header className="px-4 py-3 bg-white flex justify-between items-center">
@@ -44,11 +44,19 @@ const Header = () => {
         <LoginButton />
         <div className="relative sm:hidden w-7 h-7">
           <button
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${navIsOpen ? "scale-0" : ""}`}
-          onClick={handleOpenNav}>
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
+              navIsOpen ? "scale-0" : ""
+            }`}
+            onClick={handleOpenNav}
+          >
             <RiMenu3Line className="w-6 h-6" />
           </button>
-          <button className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${navIsOpen ? "" : "scale-0"}`} onClick={handleCloseNav}>
+          <button
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
+              navIsOpen ? "" : "scale-0"
+            }`}
+            onClick={handleCloseNav}
+          >
             <IoClose className="w-6 h-6" />
           </button>
         </div>

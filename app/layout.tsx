@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans bg-slate-100 overflow-hidden`}>
+      <body
+        className={`${inter.variable} font-sans bg-slate-100 overflow-hidden`}
+      >
         <Header />
         <main>{children}</main>
       </body>
