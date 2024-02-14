@@ -18,46 +18,46 @@ const Header = () => {
   };
 
   return (
-    <header className="px-4 py-3 bg-white flex justify-between items-center">
-      <div className="text-primary text-2xl italic font-bold">Passlock</div>
+    <header className="flex items-center justify-between bg-white px-2 py-3 sm:px-5 md:px-8">
+      <div className="text-2xl font-bold italic text-primary">Passlock</div>
       <nav
-        className={`max-sm:absolute top-14 bottom-0 right-0 ${
+        className={`bottom-0 right-0 top-14 max-sm:absolute ${
           navIsOpen ? "max-sm:translate-x-0" : "max-sm:translate-x-full"
-        } max-sm:bg-white max-sm:shadow-lg max-sm:left-2/4 max-sm:py-5 transition
+        } transition max-sm:left-2/4 max-sm:bg-white max-sm:py-5 max-sm:shadow-lg
       `}
       >
-        <ul className="flex gap-4 items-center md:gap-x-8 max-sm:flex-col max-sm:mt-5">
+        <ul className="flex items-center gap-4 max-sm:mt-5 max-sm:flex-col md:gap-x-8">
           {navList.map((item) => (
-            <li className="relative group">
+            <li className="group relative">
               <Link
                 href={item.href}
-                className="max-sm:hover:text-accent transition"
+                className="transition max-sm:hover:text-accent"
               >
                 {item.title}
               </Link>
-              <span className="w-0 h-1 bg-accent absolute -bottom-4 left-1/2 right-0 -translate-x-1/2 group-hover:w-full transition-all duration-300 max-sm:hidden"></span>
+              <span className="absolute -bottom-4 left-1/2 right-0 h-1 w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-full max-sm:hidden"></span>
             </li>
           ))}
         </ul>
       </nav>
       <div className="flex items-center gap-x-4">
         <LoginButton />
-        <div className="relative sm:hidden w-7 h-7">
+        <div className="relative h-7 w-7 sm:hidden">
           <button
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
               navIsOpen ? "scale-0" : ""
             }`}
             onClick={handleOpenNav}
           >
-            <RiMenu3Line className="w-6 h-6" />
+            <RiMenu3Line className="h-6 w-6" />
           </button>
           <button
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
               navIsOpen ? "" : "scale-0"
             }`}
             onClick={handleCloseNav}
           >
-            <IoClose className="w-6 h-6" />
+            <IoClose className="h-6 w-6" />
           </button>
         </div>
       </div>
