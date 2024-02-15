@@ -1,6 +1,6 @@
 ## Introduction
 
-The Passlock Manager is the web app than stores user credentials.
+The Passlock Manager is the web app that stores user credentials.
 
 ## Getting Started
 
