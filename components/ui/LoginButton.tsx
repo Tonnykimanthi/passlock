@@ -1,8 +1,12 @@
-const LoginButton = () => {
+
+type Button = {
+  title: string,
+  styles: string
+}
+
+const LoginButton = ({title, styles}: Button) => {
   return (
-    <button className="rounded border border-primary bg-primary px-4 py-0.5 text-white transition hover:bg-transparent hover:text-primary">
-      Login
-    </button>
+    <button className={styles}>{title}</button>
   );
 };
 

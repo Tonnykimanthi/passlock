@@ -41,7 +41,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex items-center gap-x-4">
-        <LoginButton />
+        <LoginButton title="Login" styles="rounded border border-primary bg-primary px-4 py-0.5 text-white transition hover:bg-transparent hover:text-primary"/>
         <div className="relative h-7 w-7 sm:hidden">
           <button
             className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
