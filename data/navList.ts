@@ -8,8 +8,8 @@ export const navList = [
         href: "/features",
     },
     {
-        title: "Services",
-        href: "/services",
+        title: "Support",
+        href: "/support",
     },
     {
         title: "Contact",
