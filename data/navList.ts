@@ -4,8 +4,8 @@ export const navList = [
         href: "/",
     },
     {
-        title: "About",
-        href: "/about",
+        title: "Features",
+        href: "/features",
     },
     {
         title: "Services",
