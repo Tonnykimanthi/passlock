@@ -1,5 +1,7 @@
 import Image from "next/image";
 import heroImage from "../../public/hero-image.svg";
+import LoginButton from "../ui/LoginButton";
+import { HiChevronRight } from "react-icons/hi2";
 
 const HeroSection = () => {
   return (
@@ -13,6 +15,13 @@ const HeroSection = () => {
           With Passlock Manager, you can effortlessly store, organize, and
           access all your login information in one secure place.
         </p>
+        <div className="group relative mt-2 w-48">
+          <LoginButton
+            title="Get Started"
+            styles="rounded bg-primary w-full py-2 text-white transition"
+          />
+          <HiChevronRight className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 stroke-1 text-white transition-all group-hover:right-2" />
+        </div>
       </div>
       <div className="">
         <Image src={heroImage} alt="Hero section image" />
