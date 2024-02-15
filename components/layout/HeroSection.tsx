@@ -23,7 +23,7 @@ const HeroSection = () => {
           <HiChevronRight className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 stroke-1 text-white transition-all group-hover:right-2" />
         </div>
       </div>
-      <div className="">
+      <div>
         <Image src={heroImage} alt="Hero section image" />
       </div>
     </section>
