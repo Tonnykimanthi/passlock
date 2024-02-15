@@ -27,8 +27,8 @@ const Header = () => {
       `}
       >
         <ul className="flex items-center gap-4 max-sm:mt-5 max-sm:flex-col md:gap-x-8">
-          {navList.map((item) => (
-            <li className="group relative">
+          {navList.map((item, index) => (
+            <li key={index} className="group relative">
               <Link
                 href={item.href}
                 className="transition max-sm:hover:text-accent"

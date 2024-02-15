@@ -15,13 +15,13 @@ const HeroSection = () => {
           With Passlock Manager, you can effortlessly store, organize, and
           access all your login information in one secure place.
         </p>
-        <button className="relative mt-2 w-48 bg-primary rounded group">
+        <div className="relative mt-2 w-48 bg-primary rounded group">
           <LoginButton
             title="Get Started"
             styles="w-full py-2 text-white transition"
           />
           <HiChevronRight className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 stroke-1 text-white transition-all group-hover:right-2" />
-        </button>
+        </div>
       </div>
       <div>
         <Image src={heroImage} alt="Hero section image" />

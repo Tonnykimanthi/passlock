@@ -21,7 +21,7 @@ export default function RootLayout({
         className={`${inter.variable} overflow-x-hidden bg-slate-50 font-sans`}
       >
         <Header />
-        <main>{children}</main>
+        <>{children}</>
       </body>
     </html>
   );
