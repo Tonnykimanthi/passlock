@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col items-center gap-x-4 bg-secondary px-2 py-2 max-md:py-5 sm:px-5 md:flex-row md:justify-between md:px-8">
       <div className="max-w-sm max-md:text-center md:max-w-xl">
-        <h1 className="text-2xl font-semibold md:text-4xl">
+        <h1 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
           Take Control of Your <span className="text-accent">Passwords</span>{" "}
           with <span className="text-primary">Passlock</span> Manager
         </h1>
