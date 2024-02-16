@@ -1,11 +1,11 @@
-import Features from "@/components/layout/Features";
+import FeaturesSection from "@/components/layout/FeatureSection";
 import HeroSection from "@/components/layout/HeroSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <Features />
+      <FeaturesSection />
     </>
   );
 }
