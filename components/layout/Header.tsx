@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between bg-white px-2 py-3 sm:px-5 md:px-8">
+    <header className="flex items-center justify-between bg-white px-2 py-2 sm:px-5 md:px-8">
       <div className="text-2xl font-bold italic text-primary">Passlock</div>
       <nav
         className={`bottom-0 right-0 top-14 max-sm:absolute ${
@@ -35,7 +35,7 @@ const Header = () => {
               >
                 {item.title}
               </Link>
-              <span className="absolute -bottom-4 left-1/2 right-0 h-1 w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-full max-sm:hidden"></span>
+              <span className="absolute -bottom-3 left-1/2 right-0 h-1 w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-full max-sm:hidden"></span>
             </li>
           ))}
         </ul>
@@ -43,7 +43,7 @@ const Header = () => {
       <div className="flex items-center gap-x-4">
         <LoginButton
           title="Demo"
-          styles="rounded border border-accent bg-accent px-5 py-0.5 text-white transition"
+          styles="rounded border border-accent bg-accent px-5 py-0.5 text-white hover:bg-accentDark transition"
         />
         <div className="relative h-7 w-7 sm:hidden">
           <button
