@@ -15,7 +15,7 @@ const HeroSection = () => {
           access all your login information in one secure place.
         </p>
         <LoginButton
-          title="Try Demo"
+          title="Get started"
           styles="w-40 mt-2 rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
         />
       </div>
