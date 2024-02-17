@@ -1,12 +1,12 @@
 import ItemInfo from "@/components/layout/ItemInfo";
 import ItemsCategory from "@/components/layout/ItemsCategory";
-import ItemsList from "@/components/layout/ItemsList";
+import Items from "@/components/layout/Items";
 
 const page = () => {
   return (
     <div className="flex">
       <ItemsCategory />
-      <ItemsList />
+      <Items />
       <ItemInfo />
     </div>
   );
