@@ -10,11 +10,23 @@ export type Context = {
   setNameField: Dispatch<SetStateAction<string>>;
   setUserNameField: Dispatch<SetStateAction<string>>;
   setPasswordField: Dispatch<SetStateAction<string>>;
+  itemsList: {
+    name: string;
+    userName: string;
+    password: string;
+  }[];
 };
 
 export const AppContext = createContext<Context | null>(null);
 
 const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
+  const [itemsList, setitemsList] = useState([
+    {
+      name: "Amazon",
+      userName: "tonny-km",
+      password: "Anthony9",
+    },
+  ]);
   const [nameField, setNameField] = useState("");
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
@@ -28,6 +40,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         setNameField,
         setUserNameField,
         setPasswordField,
+        itemsList,
       }}
     >
       {children}
