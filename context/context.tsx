@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 import ItemsList from "@/components/layout/Items";
 
-type Context = {
+export type Context = {
   nameField: string;
   userNameField: string;
   passwordField: string;
