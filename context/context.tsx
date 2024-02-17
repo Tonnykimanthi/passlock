@@ -1,24 +1,31 @@
-import { createContext, useState } from "react";
+import { Dispatch, SetStateAction, createContext, useState } from "react";
+import ItemsList from "@/components/layout/Items";
 
 type Context = {
-  name: string;
-  userName: string;
-  password: string;
+  nameField: string;
+  userNameField: string;
+  passwordField: string;
+  setNameField: Dispatch<SetStateAction<string>>
+  setUserNameField: Dispatch<SetStateAction<string>>
+  setPasswordField: Dispatch<SetStateAction<string>>
 };
 
 export const AppContext = createContext<Context | null>(null);
 
 const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
-  const [name, setName] = useState("Youtube");
-  const [userName, setUserName] = useState("kimaxhtony@gmail.com");
-  const [password, setPassword] = useState("Anthony9");
+  const [nameField, setNameField] = useState("Youtube");
+  const [userNameField, setUserNameField] = useState("kimaxhtony@gmail.com");
+  const [passwordField, setPasswordField] = useState("Anthony9");
 
   return (
     <AppContext.Provider
       value={{
-        name,
-        userName,
-        password,
+        nameField,
+        userNameField,
+        passwordField,
+        setNameField,
+        setUserNameField,
+        setPasswordField
       }}
     >
       {children}
