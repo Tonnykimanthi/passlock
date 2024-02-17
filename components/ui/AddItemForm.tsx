@@ -11,10 +11,23 @@ const AddItemForm = () => {
     setNameField,
     setUserNameField,
     setPasswordField,
+    itemsList,
+    setItemsList,
   } = useContext(AppContext) as Context;
 
+  const handleSubmit = () => {
+    setItemsList((prev) => [
+      ...prev,
+      {
+        name: nameField,
+        userName: userNameField,
+        password: passwordField,
+      },
+    ]);
+  };
+
   return (
-    <form className="space-y-3">
+    <form className="space-y-3" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Name</label>
         <input
@@ -42,6 +55,14 @@ const AddItemForm = () => {
           onChange={(e) => setPasswordField(e.target.value)}
         />
       </div>
+      <input
+        type="submit"
+        value="Post"
+        onClick={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      />
     </form>
   );
 };

@@ -8,8 +8,8 @@ const ItemsList = () => {
 
   return (
     <section className="basis-1/4 border-t border-secondary bg-white py-2">
-      {itemsList?.map((item) => (
-        <article className="flex items-center gap-x-2 border-l-4 border-primary px-2">
+      {itemsList?.map((item, index) => (
+        <article key={index} className="flex items-center gap-x-2 border-l-4 border-primary px-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent">
             A
           </span>
