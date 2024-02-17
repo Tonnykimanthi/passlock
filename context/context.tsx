@@ -15,7 +15,9 @@ export type Context = {
     userName: string;
     password: string;
   }[];
-  setItemsList: Dispatch<SetStateAction<{name: string, userName: string, password: string}[]>>
+  setItemsList: Dispatch<
+    SetStateAction<{ name: string; userName: string; password: string }[]>
+  >;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -42,7 +44,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         setUserNameField,
         setPasswordField,
         itemsList,
-        setItemsList
+        setItemsList,
       }}
     >
       {children}
