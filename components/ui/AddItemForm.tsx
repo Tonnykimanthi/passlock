@@ -27,7 +27,12 @@ const AddItemForm = () => {
   };
 
   return (
-    <form className="space-y-3" onSubmit={handleSubmit}>
+    <form
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg bg-accent p-5"
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <div>
         <label htmlFor="name">Name</label>
         <input
@@ -55,14 +60,7 @@ const AddItemForm = () => {
           onChange={(e) => setPasswordField(e.target.value)}
         />
       </div>
-      <input
-        type="submit"
-        value="Post"
-        onClick={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      />
+      <input type="submit" value="Submit" onClick={handleSubmit} />
     </form>
   );
 };
