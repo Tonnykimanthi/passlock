@@ -17,19 +17,23 @@ const AddItemForm = () => {
   } = useContext(AppContext) as Context;
 
   const handleSubmit = () => {
-    setItemsList((prev) => [
-      ...prev,
-      {
-        name: nameField,
-        userName: userNameField,
-        password: passwordField,
-      },
-    ]);
+    if (nameField === "" || userNameField === "") {
+      console.log("NO");
+    } else {
+      setItemsList((prev) => [
+        ...prev,
+        {
+          name: nameField,
+          userName: userNameField,
+          password: passwordField,
+        },
+      ]);
+    }
   };
 
   return (
     <form
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg bg-accentDark p-5 [&>div>label]:text-white [&>div]:flex [&>div]:flex-col"
+      className="[&>div>label]:text-whit -translate-x-1/ absolute left-1/2 top-1/2 w-full max-w-md -translate-y-1/2 space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col"
       onSubmit={(e) => {
         e.preventDefault();
       }}
@@ -41,7 +45,7 @@ const AddItemForm = () => {
           name="name"
           value={nameField}
           placeholder="Name"
-          className="rounded py-1.5 pl-2 outline-none"
+          className="rounded border border-white py-2 pl-2 outline-none transition focus:border-secondary"
           onChange={(e) => setNameField(e.target.value)}
         />
       </div>
@@ -51,8 +55,8 @@ const AddItemForm = () => {
           type="text"
           name="user-name-email"
           value={userNameField}
-          placeholder="Username/Email"
-          className="py-1.5 pl-2"
+          placeholder="Username"
+          className="rounded border border-white py-2 pl-2 outline-none transition focus:border-secondary"
           onChange={(e) => setUserNameField(e.target.value)}
         />
       </div>
@@ -63,11 +67,16 @@ const AddItemForm = () => {
           name="password"
           value={passwordField}
           placeholder="Password"
-          className="py-1.5 pl-2"
+          className="rounded border border-white py-2 pl-2 outline-none transition focus:border-secondary"
           onChange={(e) => setPasswordField(e.target.value)}
         />
       </div>
-      <input type="submit" value="Submit" onClick={handleSubmit} />
+      <input
+        type="submit"
+        value="Submit"
+        className="mx-auto block w-32 cursor-pointer rounded bg-slate-800 py-2 text-white transition hover:bg-slate-950"
+        onClick={handleSubmit}
+      />
     </form>
   );
 };
