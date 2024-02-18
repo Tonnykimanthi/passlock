@@ -7,18 +7,27 @@ const ItemsList = () => {
   const { itemsList } = useContext(AppContext) as Context;
 
   return (
-    <section className="space-y-2 basis-1/4 border-t border-secondary bg-white py-2">
+    <section className="basis-1/4 cursor-pointer space-y-2 border-t border-secondary bg-white py-2">
       {itemsList?.map((item, index) => (
-        <article
+        <label
+          htmlFor={`item-${index}`}
           key={index}
-          className="flex items-center gap-x-2 border-l-4 border-primary px-2"
+          className="flex cursor-pointer items-center gap-x-2 border-l-4 border-transparent px-2 transition-all duration-300 has-[:checked]:border-primary has-[:checked]:bg-accent/10"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent">{item.name.slice(0, 1).toUpperCase()}</span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent">
+            {item.name.slice(0, 1).toUpperCase()}
+          </span>
           <div>
             <h5 className="text-lg font-medium">{item.name}</h5>
             <p className="text-sm text-slate-500">{item.userName}</p>
           </div>
-        </article>
+          <input
+            type="radio"
+            name="item"
+            id={`item-${index}`}
+            className="appearance-none"
+          />
+        </label>
       ))}
     </section>
   );
