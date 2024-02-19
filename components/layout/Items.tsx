@@ -4,7 +4,7 @@ import { AppContext, Context } from "@/context/context";
 import { useContext } from "react";
 
 const ItemsList = () => {
-  const { itemsList } = useContext(AppContext) as Context;
+  const { itemsList, handleSelectedItem } = useContext(AppContext) as Context;
 
   return (
     <section className="basis-1/4 cursor-pointer space-y-2 border-t border-secondary bg-white py-2">
@@ -26,6 +26,7 @@ const ItemsList = () => {
             name="item"
             id={`item-${index}`}
             className="appearance-none"
+            onChange={() => handleSelectedItem(index)}
           />
         </label>
       ))}

@@ -18,7 +18,7 @@ const AddItemForm = () => {
 
   const handleSubmit = () => {
     if (nameField === "" || userNameField === "") {
-      console.log("NO");
+      console.log("Name and Username are required");
     } else {
       setItemsList((prev) => [
         ...prev,
@@ -33,7 +33,7 @@ const AddItemForm = () => {
 
   return (
     <form
-      className="[&>div>label]:text-whit -translate-x-1/ absolute left-1/2 top-1/2 w-full max-w-md -translate-y-1/2 space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col"
+      className="[&>div>label]:text-whit -translate-x-1/ -translate-y-1/ absolute bottom-0 left-0 w-full max-w-md space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col"
       onSubmit={(e) => {
         e.preventDefault();
       }}

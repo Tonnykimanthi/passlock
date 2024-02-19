@@ -1,7 +1,6 @@
 "use client";
 
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import ItemsList from "@/components/layout/Items";
 
 export type Context = {
   nameField: string;
@@ -18,6 +17,8 @@ export type Context = {
   setItemsList: Dispatch<
     SetStateAction<{ name: string; userName: string; password: string }[]>
   >;
+  selectedItem: number;
+  handleSelectedItem: (index: number) => void
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -33,6 +34,11 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [nameField, setNameField] = useState("");
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
+  const [selectedItem, setSelectedItem] = useState(0);
+
+  const handleSelectedItem = (index: number) => {
+    setSelectedItem(index)
+  }
 
   return (
     <AppContext.Provider
@@ -45,6 +51,8 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         setPasswordField,
         itemsList,
         setItemsList,
+        selectedItem,
+        handleSelectedItem
       }}
     >
       {children}
