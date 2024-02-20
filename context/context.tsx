@@ -18,7 +18,9 @@ export type Context = {
     SetStateAction<{ name: string; userName: string; password: string }[]>
   >;
   selectedItem: number;
-  handleSelectedItem: (index: number) => void
+  handleSelectedItem: (index: number) => void;
+  formIsOpen: boolean;
+  handleFormIsOpen: () => void;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -35,10 +37,14 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [selectedItem, setSelectedItem] = useState(0);
+  const [formIsOpen, setFormIsOpen] = useState(true);
 
   const handleSelectedItem = (index: number) => {
-    setSelectedItem(index)
-  }
+    setSelectedItem(index);
+  };
+  const handleFormIsOpen = () => {
+    setFormIsOpen((prev) => !prev);
+  };
 
   return (
     <AppContext.Provider
@@ -52,7 +58,9 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         itemsList,
         setItemsList,
         selectedItem,
-        handleSelectedItem
+        handleSelectedItem,
+        formIsOpen,
+        handleFormIsOpen,
       }}
     >
       {children}

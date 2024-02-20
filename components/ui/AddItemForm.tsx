@@ -12,8 +12,8 @@ const AddItemForm = () => {
     setNameField,
     setUserNameField,
     setPasswordField,
-    itemsList,
     setItemsList,
+    formIsOpen,
   } = useContext(AppContext) as Context;
 
   const handleSubmit = () => {
@@ -33,7 +33,7 @@ const AddItemForm = () => {
 
   return (
     <form
-      className="[&>div>label]:text-whit -translate-x-1/ -translate-y-1/ absolute bottom-0 left-0 w-full max-w-md space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col"
+      className={`[&>div>label]:text-whit -translate-x-1/ -translate-y-1/ absolute bottom-0 left-0 w-full max-w-md space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col ${formIsOpen ? "" : "scale-0"}`}
       onSubmit={(e) => {
         e.preventDefault();
       }}
