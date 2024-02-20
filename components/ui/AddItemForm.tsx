@@ -33,7 +33,7 @@ const AddItemForm = () => {
 
   return (
     <form
-      className={`[&>div>label]:text-whit absolute left-2/4 top-2/4 w-full max-w-md -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg bg-primary p-5 [&>div]:flex [&>div]:flex-col ${!formIsOpen ? "" : "scale-0"}`}
+      className={`absolute left-2/4 top-2/4 w-full max-w-md origin-top-right -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg bg-primary p-5 transition duration-300 [&>div]:flex [&>div]:flex-col ${!formIsOpen ? "" : "scale-0"}`}
       onSubmit={(e) => {
         e.preventDefault();
       }}
