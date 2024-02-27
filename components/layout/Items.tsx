@@ -14,7 +14,7 @@ const ItemsList = () => {
           key={index}
           className="flex cursor-pointer items-center gap-x-2 border-l-4 border-transparent px-2 transition-all duration-300 has-[:checked]:border-primary has-[:checked]:bg-accent/10"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent text-lg font-medium">
             {item.name.slice(0, 1).toUpperCase()}
           </span>
           <div>
