@@ -4,7 +4,9 @@ import { AppContext, Context } from "@/context/context";
 import { useContext } from "react";
 
 const ItemsList = () => {
-  const { itemsList, handleSelectedItem } = useContext(AppContext) as Context;
+  const { itemsList, handleSelectedItem, selectedItem } = useContext(
+    AppContext,
+  ) as Context;
 
   return (
     <section className="basis-1/3 cursor-pointer space-y-2 border-t border-secondary bg-white px-2 py-2">
@@ -27,6 +29,7 @@ const ItemsList = () => {
             id={`item-${index}`}
             className="appearance-none"
             onChange={() => handleSelectedItem(index)}
+            checked={selectedItem === index}
           />
         </label>
       ))}
