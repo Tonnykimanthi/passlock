@@ -10,15 +10,17 @@ const ItemInfo = () => {
   ) as Context;
 
   return (
-    <section className="flex basis-1/2 flex-col px-2 md:px-5 lg:px-8">
-      <button
-        className="self-end bg-primary hover:bg-primaryDark transition py-1.5 rounded text-white md:px-5 lg:px-8"
-        onClick={handleFormIsOpen}
-      >
-        Add Item
-      </button>
+    <section className="flex basis-1/2 flex-col px-2 sm:px-5 md:px-8">
+      <div className="my-2 flex items-center justify-between">
+        <h5 className="pl-4 text-2xl font-bold text-accentDark">Item Info</h5>
+        <button
+          className="rounded bg-primary p-1.5 text-white transition hover:bg-primaryDark md:px-5 lg:px-8"
+          onClick={handleFormIsOpen}
+        >
+          Add Item
+        </button>
+      </div>
       <AddItemForm />
-      <h5 className="px-4 text-2xl font-bold text-accentDark">Item Info</h5>
       <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>p]:font-bold [&>article]:py-2">
         <article>
           <span>Name</span>
