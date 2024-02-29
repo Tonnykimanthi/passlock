@@ -7,7 +7,7 @@ const ItemsList = () => {
   const { itemsList, handleSelectedItem } = useContext(AppContext) as Context;
 
   return (
-    <section className="basis-1/4 cursor-pointer space-y-2 border-t border-secondary bg-white py-2">
+    <section className="basis-1/3 cursor-pointer space-y-2 border-t border-secondary bg-white py-2">
       {itemsList?.map((item, index) => (
         <label
           htmlFor={`item-${index}`}
