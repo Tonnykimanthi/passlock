@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between bg-white px-2 py-2 sm:px-5 md:px-8">
+    <header className="flex items-center justify-between bg-white px-2 py-2">
       <div className="text-2xl font-bold italic text-primary">Passlock</div>
       <nav
         className={`bottom-0 right-0 top-14 max-sm:absolute ${
