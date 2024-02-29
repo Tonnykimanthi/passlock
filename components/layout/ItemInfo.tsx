@@ -21,18 +21,18 @@ const ItemInfo = () => {
         </button>
       </div>
       <AddItemForm />
-      <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>p]:font-bold [&>article]:py-2">
+      <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>input]:font-bold [&>article>input]:outline-none [&>article]:grid [&>article]:py-2">
         <article>
-          <span>Name</span>
-          <p>{itemsList[selectedItem].name}</p>
+          <label htmlFor="name">Name</label>
+          <input type="text" value={itemsList[selectedItem].name} />
         </article>
         <article>
-          <span>Username/Email</span>
-          <p>{itemsList[selectedItem].userName}</p>
+          <label htmlFor="username">Username/Email</label>
+          <input type="text" value={itemsList[selectedItem].userName} />
         </article>
         <article>
-          <span>Password</span>
-          <p>{itemsList[selectedItem].password}</p>
+          <label htmlFor="password">Password</label>
+          <input type="password" value={itemsList[selectedItem].password} />
         </article>
       </div>
     </section>
