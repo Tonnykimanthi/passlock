@@ -4,7 +4,6 @@ import {
   Dispatch,
   SetStateAction,
   createContext,
-  useEffect,
   useState,
 } from "react";
 
@@ -44,10 +43,6 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [passwordField, setPasswordField] = useState("");
   const [selectedItem, setSelectedItem] = useState(0);
   const [formIsOpen, setFormIsOpen] = useState(true);
-
-  useEffect(() => {
-    handleSelectedItem(0);
-  }, []);
 
   const handleSelectedItem = (index: number) => {
     setSelectedItem(index);
