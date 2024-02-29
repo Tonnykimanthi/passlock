@@ -12,10 +12,6 @@ const ItemInfo = () => {
   ) as Context;
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
 
-  const handlePasswordVisibility = () => {
-    setPasswordIsVisible((prev) => !prev);
-  };
-
   return (
     <section className="flex basis-1/2 flex-col px-2 sm:px-5 md:px-8">
       <div className="my-2 flex items-center justify-between">
