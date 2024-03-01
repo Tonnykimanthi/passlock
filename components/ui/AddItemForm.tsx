@@ -1,7 +1,7 @@
 "use client";
 
 import { AppContext, Context } from "@/context/Store";
-import { useContext } from "react";
+import { EventHandler, useContext, useEffect, useRef } from "react";
 import InputField from "./InputField";
 
 const AddItemForm = () => {
@@ -14,7 +14,9 @@ const AddItemForm = () => {
     setPasswordField,
     setItemsList,
     formIsOpen,
+    setFormIsOpen,
   } = useContext(AppContext) as Context;
+  const formEl = useRef<HTMLFormElement>(null);
 
   const handleSubmit = () => {
     if (nameField === "" || userNameField === "") {
@@ -34,10 +36,28 @@ const AddItemForm = () => {
     setPasswordField("");
   };
 
+  useEffect(() => {
+    const handleCloseForm = (e: Event) => {
+      if (formEl.current === null) return;
+      if (!formEl.current.contains(e.target as HTMLFormElement)) {
+        setFormIsOpen(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleCloseForm);
+
+    return () => {
+      document.body.removeEventListener("click", handleCloseForm);
+    };
+  });
+
   return (
-    <div className="absolute inset-0 border border-black bg-black/20">
+    <div
+      className={`absolute inset-0 border border-black bg-black/20 ${formIsOpen ? "" : "scale-0"}`}
+    >
       <form
-        className={`absolute left-2/4 top-2/4 w-full max-w-md origin-top-right -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg p-5 transition duration-300 [&>div]:flex [&>div]:flex-col ${!formIsOpen ? "" : "scale-0"} bg-white [&>div>label]:font-medium`}
+        ref={formEl}
+        className={`absolute left-2/4 top-2/4 w-full max-w-md origin-top-right -translate-x-1/2 -translate-y-1/2 space-y-3 rounded-lg p-5 transition duration-300 [&>div]:flex [&>div]:flex-col ${formIsOpen ? "" : "scale-0"} bg-white [&>div>label]:font-medium`}
         onSubmit={(e) => {
           e.preventDefault();
         }}

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useState,
-} from "react";
+import { Dispatch, SetStateAction, createContext, useState } from "react";
 
 export type Context = {
   nameField: string;
@@ -25,6 +20,7 @@ export type Context = {
   selectedItem: number;
   handleSelectedItem: (index: number) => void;
   formIsOpen: boolean;
+  setFormIsOpen: Dispatch<SetStateAction<boolean>>;
   handleFormIsOpen: () => void;
 };
 
@@ -42,7 +38,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [selectedItem, setSelectedItem] = useState(0);
-  const [formIsOpen, setFormIsOpen] = useState(true);
+  const [formIsOpen, setFormIsOpen] = useState(false);
 
   const handleSelectedItem = (index: number) => {
     setSelectedItem(index);
@@ -65,6 +61,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         selectedItem,
         handleSelectedItem,
         formIsOpen,
+        setFormIsOpen,
         handleFormIsOpen,
       }}
     >

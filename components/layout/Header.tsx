@@ -46,10 +46,12 @@ const Header = () => {
       </nav>
       <div className="flex items-center gap-x-4">
         {url === "/" ? (
-          <Button
-            title="Get started"
-            styles="mr-5 text-primary font-medium transition"
-          />
+          <Link href={"/demo"}>
+            <Button
+              title="Get started"
+              styles="mr-5 text-primary font-medium transition"
+            />
+          </Link>
         ) : (
           <Button
             title="Add Item"
