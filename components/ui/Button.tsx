@@ -1,14 +1,16 @@
 import Link from "next/link";
 
-
 type Button = {
-  title: string,
-  styles: string
-}
+  title: string;
+  styles: string;
+  handleClick?: () => void;
+};
 
-const LoginButton = ({title, styles}: Button) => {
+const LoginButton = ({ title, styles, handleClick }: Button) => {
   return (
-    <Link href={"/demo"} className={styles}>{title}</Link>
+    <Link href={"/demo"} className={styles} onClick={handleClick}>
+      {title}
+    </Link>
   );
 };
 

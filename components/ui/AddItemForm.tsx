@@ -1,6 +1,6 @@
 "use client";
 
-import { AppContext, Context } from "@/context/context";
+import { AppContext, Context } from "@/context/Store";
 import { useContext } from "react";
 import InputField from "./InputField";
 

@@ -5,10 +5,12 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { RiMenu3Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { usePathname } from "next/navigation";
+import { AppContext, Context } from "@/context/Store";
 
 const Header = () => {
+  const { handleFormIsOpen } = useContext(AppContext) as Context;
   const [navIsOpen, setNavIsOpen] = useState(false);
   const url = usePathname();
 
@@ -43,10 +45,19 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex items-center gap-x-4">
-        <Button
-          title="Get started"
-          styles="rounded px-5 py-0.5 text-primary font-medium transition"
-        />
+        {url === "/" ? (
+          <Button
+            title="Get started"
+            styles="mr-5 text-primary font-medium transition"
+          />
+        ) : (
+          <Button
+            title="Add Item"
+            styles="rounded mr-5 bg-primary px-5 py-1 text-white font-medium hover:bg-primaryDark active:scale-105 transition"
+            handleClick={handleFormIsOpen}
+          />
+        )}
+
         <div className="relative h-7 w-7 sm:hidden">
           <button
             className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition ${
