@@ -16,7 +16,7 @@ const HeroSection = () => {
         </p>
         <LoginButton
           title="Get started"
-          styles="w-40 mt-2 rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
+          styles="px-10 mt-2 inline-block rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
         />
       </div>
       <div>

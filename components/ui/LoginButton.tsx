@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 
 type Button = {
   title: string,
@@ -6,7 +8,7 @@ type Button = {
 
 const LoginButton = ({title, styles}: Button) => {
   return (
-    <button className={styles}>{title}</button>
+    <Link href={"/demo"} className={styles}>{title}</Link>
   );
 };
 
