@@ -6,9 +6,11 @@ import LoginButton from "../ui/LoginButton";
 import { RiMenu3Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
+  const url = usePathname();
 
   const handleOpenNav = () => {
     setNavIsOpen(true);
@@ -42,8 +44,8 @@ const Header = () => {
       </nav>
       <div className="flex items-center gap-x-4">
         <LoginButton
-          title="Demo"
-          styles="rounded border border-accent bg-accent px-5 py-0.5 text-white hover:bg-accentDark transition"
+          title="Get started"
+          styles="rounded px-5 py-0.5 text-primary font-medium transition"
         />
         <div className="relative h-7 w-7 sm:hidden">
           <button
