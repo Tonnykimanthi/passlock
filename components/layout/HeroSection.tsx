@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroImage from "../../public/hero-image.svg";
-import LoginButton from "../ui/LoginButton";
+import Button from "../ui/Button";
 
 const HeroSection = () => {
   return (
@@ -14,7 +14,7 @@ const HeroSection = () => {
           With Passlock Manager, you can effortlessly store, organize, and
           access all your login information in one secure place.
         </p>
-        <LoginButton
+        <Button
           title="Get started"
           styles="px-10 mt-2 inline-block rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
         />

@@ -2,7 +2,7 @@
 
 import { navList } from "@/data/navList";
 import Link from "next/link";
-import LoginButton from "../ui/LoginButton";
+import Button from "../ui/Button";
 import { RiMenu3Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
@@ -43,7 +43,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex items-center gap-x-4">
-        <LoginButton
+        <Button
           title="Get started"
           styles="rounded px-5 py-0.5 text-primary font-medium transition"
         />
