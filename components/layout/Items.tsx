@@ -9,12 +9,12 @@ const ItemsList = () => {
   ) as Context;
 
   return (
-    <section className="basis-1/3 cursor-pointer space-y-2 border-t border-secondary bg-white px-2 py-2">
+    <section className="basis-1/3 cursor-pointer border-t border-secondary bg-white px-2 py-2">
       {itemsList?.map((item, index) => (
         <label
           htmlFor={`item-${index}`}
           key={index}
-          className="flex cursor-pointer items-center gap-x-2 border-l-4 border-transparent px-2 transition-all duration-300 has-[:checked]:border-primary has-[:checked]:bg-accent/10"
+          className="flex cursor-pointer items-center gap-x-2 border-l-4 border-transparent px-2 py-1 transition-all duration-300 has-[:checked]:border-primary has-[:checked]:bg-accent/10"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent text-lg font-medium">
             {item.name.slice(0, 1).toUpperCase()}
