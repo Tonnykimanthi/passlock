@@ -31,6 +31,9 @@ export type Context = {
   setFormIsOpen: Dispatch<SetStateAction<boolean>>;
   handleFormIsOpen: () => void;
   handleDeleteItem: () => void;
+  formType: string;
+  setFormType: Dispatch<SetStateAction<string>>;
+  handleUpdateItem: () => void;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -41,7 +44,8 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [selectedItem, setSelectedItem] = useState(0);
-  const [formIsOpen, setFormIsOpen] = useState(false)
+  const [formIsOpen, setFormIsOpen] = useState(false);
+  const [formType, setFormType] = useState("Add");
 
   const handleSelectedItem = (index: number) => {
     setSelectedItem(index);
@@ -50,12 +54,25 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
     setFormIsOpen((prev) => !prev);
   };
 
+  const handleUpdateItem = () => {
+    const item = {
+      name: nameField,
+      userName: userNameField,
+      password: passwordField,
+    };
+    const updatedItemsList = [...itemsList];
+    updatedItemsList[selectedItem] = item;
+    setItemsList(updatedItemsList);
+  };
+
   const handleDeleteItem = () => {
-    const filteredItems = itemsList.filter(item => item !== itemsList[selectedItem])
-    setItemsList(filteredItems)
-    localStorage.setItem('itemsList', JSON.stringify(filteredItems))
-    setSelectedItem(filteredItems.length - 1)
-  }
+    const filteredItems = itemsList.filter(
+      (item) => item !== itemsList[selectedItem],
+    );
+    setItemsList(filteredItems);
+    localStorage.setItem("itemsList", JSON.stringify(filteredItems));
+    setSelectedItem(filteredItems.length - 1);
+  };
 
   return (
     <AppContext.Provider
@@ -73,7 +90,10 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         formIsOpen,
         setFormIsOpen,
         handleFormIsOpen,
-        handleDeleteItem
+        handleDeleteItem,
+        formType,
+        setFormType,
+        handleUpdateItem,
       }}
     >
       {children}

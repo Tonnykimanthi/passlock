@@ -10,7 +10,13 @@ import { usePathname } from "next/navigation";
 import { AppContext, Context } from "@/context/Store";
 
 const Header = () => {
-  const { handleFormIsOpen } = useContext(AppContext) as Context;
+  const {
+    handleFormIsOpen,
+    setFormType,
+    setNameField,
+    setUserNameField,
+    setPasswordField,
+  } = useContext(AppContext) as Context;
   const [navIsOpen, setNavIsOpen] = useState(false);
   const url = usePathname();
 
@@ -19,6 +25,14 @@ const Header = () => {
   };
   const handleCloseNav = () => {
     setNavIsOpen(false);
+  };
+
+  const handleAddButton = () => {
+    handleFormIsOpen();
+    setFormType("Add");
+    setNameField("");
+    setUserNameField("");
+    setPasswordField("");
   };
 
   return (
@@ -56,7 +70,7 @@ const Header = () => {
           <Button
             title="Add Item"
             styles="rounded mr-5 bg-primary px-5 py-1 text-white font-medium hover:bg-primaryDark active:scale-105 transition"
-            handleClick={handleFormIsOpen}
+            handleClick={handleAddButton}
           />
         )}
 

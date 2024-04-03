@@ -1,9 +1,8 @@
 "use client";
 
 import { AppContext, Context } from "@/context/Store";
-import { EventHandler, useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import InputField from "./InputField";
-import { json } from "stream/consumers";
 
 const AddItemForm = () => {
   const {
@@ -17,6 +16,8 @@ const AddItemForm = () => {
     setItemsList,
     formIsOpen,
     setFormIsOpen,
+    formType,
+    handleUpdateItem
   } = useContext(AppContext) as Context;
   const formEl = useRef<HTMLFormElement>(null);
 
@@ -39,8 +40,7 @@ const AddItemForm = () => {
   };
 
   useEffect(() => {
-
-    localStorage.setItem('itemsList', JSON.stringify(itemsList))
+    localStorage.setItem("itemsList", JSON.stringify(itemsList));
 
     const handleCloseForm = (e: Event) => {
       if (formEl.current === null) return;
@@ -100,12 +100,21 @@ const AddItemForm = () => {
             onChange={(e) => setPasswordField(e.target.value)}
           />
         </div>
-        <input
-          type="submit"
-          value="Submit"
-          className="mx-auto block w-32 cursor-pointer rounded bg-primary py-2 font-medium text-white transition hover:bg-primaryDark active:scale-105"
-          onClick={handleSubmit}
-        />
+        {formType === "Add" ? (
+          <input
+            type="submit"
+            value="Add"
+            className="mx-auto block w-32 cursor-pointer rounded bg-primary py-2 font-medium text-white transition hover:bg-primaryDark active:scale-105"
+            onClick={handleSubmit}
+          />
+        ) : (
+          <input
+            type="submit"
+            value="Edit"
+            className="mx-auto block w-32 cursor-pointer rounded bg-sky-500 py-2 font-medium text-white transition hover:bg-sky-600 active:scale-105"
+            onClick={handleUpdateItem}
+          />
+        )}
       </form>
     </div>
   );

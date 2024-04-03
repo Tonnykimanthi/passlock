@@ -7,16 +7,36 @@ import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
 
 const ItemInfo = () => {
-  const { selectedItem, itemsList, handleFormIsOpen, handleDeleteItem } = useContext(
-    AppContext,
-  ) as Context;
+  const {
+    selectedItem,
+    itemsList,
+    handleFormIsOpen,
+    handleDeleteItem,
+    setFormType,
+    setNameField,
+    setUserNameField,
+    setPasswordField,
+  } = useContext(AppContext) as Context;
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
+
+  const handleEditButton = () => {
+    handleFormIsOpen();
+    setFormType("Edit");
+    setNameField(itemsList[selectedItem].name);
+    setUserNameField(itemsList[selectedItem].userName);
+    setPasswordField(itemsList[selectedItem].password);
+  };
 
   return (
     <section className="flex basis-3/4 flex-col px-2 sm:px-5 md:px-8">
       <div className="my-2 flex items-center justify-between">
         <h5 className="pl-4 text-2xl font-bold text-accentDark">Item Info</h5>
-        <button className="text-red-500" onClick={handleDeleteItem}>Delete</button>
+        <button className="text-sky-500" onClick={handleEditButton}>
+          Edit
+        </button>
+        <button className="text-red-500" onClick={handleDeleteItem}>
+          Delete
+        </button>
       </div>
       <AddItemForm />
       <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>div>input]:font-bold [&>article>div>input]:outline-none [&>article]:grid [&>article]:py-2">
