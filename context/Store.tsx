@@ -2,6 +2,12 @@
 
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 
+type ItemsList = {
+  name: string;
+  userName: string;
+  password: string;
+}[]
+
 export type Context = {
   nameField: string;
   userNameField: string;
@@ -9,11 +15,7 @@ export type Context = {
   setNameField: Dispatch<SetStateAction<string>>;
   setUserNameField: Dispatch<SetStateAction<string>>;
   setPasswordField: Dispatch<SetStateAction<string>>;
-  itemsList: {
-    name: string;
-    userName: string;
-    password: string;
-  }[];
+  itemsList: ItemsList;
   setItemsList: Dispatch<
     SetStateAction<{ name: string; userName: string; password: string }[]>
   >;
@@ -27,13 +29,7 @@ export type Context = {
 export const AppContext = createContext<Context | null>(null);
 
 const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
-  const [itemsList, setItemsList] = useState([
-    {
-      name: "Amazon",
-      userName: "tonny-km",
-      password: "Anthony9",
-    },
-  ]);
+  const [itemsList, setItemsList] = useState<ItemsList>([]);
   const [nameField, setNameField] = useState("");
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
