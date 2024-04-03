@@ -4,6 +4,7 @@ import {
   Dispatch,
   SetStateAction,
   createContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -29,6 +30,7 @@ export type Context = {
   formIsOpen: boolean;
   setFormIsOpen: Dispatch<SetStateAction<boolean>>;
   handleFormIsOpen: () => void;
+  handleDeleteItem: () => void;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -48,6 +50,13 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
     setFormIsOpen((prev) => !prev);
   };
 
+  const handleDeleteItem = () => {
+    const filteredItems = itemsList.filter(item => item !== itemsList[selectedItem])
+    setItemsList(filteredItems)
+    localStorage.setItem('itemsList', JSON.stringify(filteredItems))
+    setSelectedItem(filteredItems.length - 1)
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -64,6 +73,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         formIsOpen,
         setFormIsOpen,
         handleFormIsOpen,
+        handleDeleteItem
       }}
     >
       {children}

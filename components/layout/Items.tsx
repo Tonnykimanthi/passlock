@@ -4,8 +4,13 @@ import { AppContext, Context } from "@/context/Store";
 import { useContext, useEffect } from "react";
 
 const ItemsList = () => {
-  const { itemsList, setItemsList, handleSelectedItem, selectedItem } =
-    useContext(AppContext) as Context;
+  const {
+    itemsList,
+    setItemsList,
+    handleSelectedItem,
+    selectedItem,
+    handleDeleteItem,
+  } = useContext(AppContext) as Context;
 
   useEffect(() => {
     const storedValue = JSON.parse(localStorage.getItem("itemsList") || "[]");
