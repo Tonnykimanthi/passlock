@@ -3,8 +3,11 @@
 import { useContext, useState, useEffect } from "react";
 import AddItemForm from "../ui/AddItemForm";
 import { AppContext, Context } from "@/context/Store";
+// Icons
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
+import { MdOutlineDeleteSweep } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 
 const ItemInfo = () => {
   const {
@@ -31,11 +34,11 @@ const ItemInfo = () => {
     <section className="flex basis-3/4 flex-col px-2 sm:px-5 md:px-8">
       <div className="my-2 flex items-center justify-between">
         <h5 className="pl-4 text-2xl font-bold text-accentDark">Item Info</h5>
-        <button className="text-sky-500" onClick={handleEditButton}>
-          Edit
+        <button onClick={handleEditButton}>
+          <CiEdit className="h-7 w-7 text-sky-600 transition hover:scale-110" />
         </button>
-        <button className="text-red-500" onClick={handleDeleteItem}>
-          Delete
+        <button onClick={handleDeleteItem}>
+          <MdOutlineDeleteSweep className="h-7 w-7 text-orange-600 transition hover:scale-110" />
         </button>
       </div>
       <AddItemForm />

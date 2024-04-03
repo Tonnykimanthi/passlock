@@ -34,6 +34,8 @@ export type Context = {
   formType: string;
   setFormType: Dispatch<SetStateAction<string>>;
   handleUpdateItem: () => void;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -46,6 +48,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [selectedItem, setSelectedItem] = useState(0);
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [formType, setFormType] = useState("Add");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelectedItem = (index: number) => {
     setSelectedItem(index);
@@ -94,6 +97,8 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
         formType,
         setFormType,
         handleUpdateItem,
+        isLoading,
+        setIsLoading
       }}
     >
       {children}

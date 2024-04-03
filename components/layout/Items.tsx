@@ -9,7 +9,6 @@ const ItemsList = () => {
     setItemsList,
     handleSelectedItem,
     selectedItem,
-    handleDeleteItem,
   } = useContext(AppContext) as Context;
 
   useEffect(() => {
