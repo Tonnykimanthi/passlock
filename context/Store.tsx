@@ -1,12 +1,17 @@
 "use client";
 
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useState,
+} from "react";
 
 type ItemsList = {
   name: string;
   userName: string;
   password: string;
-}[]
+}[];
 
 export type Context = {
   nameField: string;
@@ -34,7 +39,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [userNameField, setUserNameField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [selectedItem, setSelectedItem] = useState(0);
-  const [formIsOpen, setFormIsOpen] = useState(false);
+  const [formIsOpen, setFormIsOpen] = useState(false)
 
   const handleSelectedItem = (index: number) => {
     setSelectedItem(index);

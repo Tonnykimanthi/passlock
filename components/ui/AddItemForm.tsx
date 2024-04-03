@@ -3,6 +3,7 @@
 import { AppContext, Context } from "@/context/Store";
 import { EventHandler, useContext, useEffect, useRef } from "react";
 import InputField from "./InputField";
+import { json } from "stream/consumers";
 
 const AddItemForm = () => {
   const {
@@ -12,6 +13,7 @@ const AddItemForm = () => {
     setNameField,
     setUserNameField,
     setPasswordField,
+    itemsList,
     setItemsList,
     formIsOpen,
     setFormIsOpen,
@@ -37,6 +39,9 @@ const AddItemForm = () => {
   };
 
   useEffect(() => {
+
+    localStorage.setItem('itemsList', JSON.stringify(itemsList))
+
     const handleCloseForm = (e: Event) => {
       if (formEl.current === null) return;
       if (!formEl.current.contains(e.target as HTMLFormElement)) {
@@ -49,7 +54,7 @@ const AddItemForm = () => {
     return () => {
       document.body.removeEventListener("click", handleCloseForm);
     };
-  });
+  }, [itemsList]);
 
   return (
     <div

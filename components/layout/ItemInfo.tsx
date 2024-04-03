@@ -23,14 +23,14 @@ const ItemInfo = () => {
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            value={itemsList[selectedItem].name}
+            value={itemsList[selectedItem]?.name}
             className="font-bold outline-none"
           />
         </article>
         <article>
           <label htmlFor="username">Username/Email</label>
           <div>
-            <input type="text" value={itemsList[selectedItem].userName} />
+            <input type="text" value={itemsList[selectedItem]?.userName} />
           </div>
         </article>
         <article>
@@ -38,7 +38,7 @@ const ItemInfo = () => {
           <div className="flex justify-between">
             <input
               type={`${passwordIsVisible ? "text" : "password"}`}
-              value={itemsList[selectedItem].password}
+              value={itemsList[selectedItem]?.password}
             />
             <IoEyeOffOutline
               className={`h-6 w-6 cursor-pointer ${passwordIsVisible ? "hidden" : ""}`}

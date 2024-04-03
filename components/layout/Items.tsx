@@ -1,12 +1,19 @@
 "use client";
 
 import { AppContext, Context } from "@/context/Store";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const ItemsList = () => {
-  const { itemsList, handleSelectedItem, selectedItem } = useContext(
-    AppContext,
-  ) as Context;
+  const { itemsList, setItemsList, handleSelectedItem, selectedItem } =
+    useContext(AppContext) as Context;
+
+  useEffect(() => {
+    const storedValue = JSON.parse(localStorage.getItem("itemsList") || "[]");
+
+    if (storedValue.length > 0) {
+      setItemsList(storedValue);
+    }
+  }, []);
 
   return (
     <section className="basis-1/3 cursor-pointer border-t border-secondary bg-white px-2 py-2">
