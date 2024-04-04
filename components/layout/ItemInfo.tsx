@@ -34,7 +34,10 @@ const ItemInfo = () => {
     <section className="flex basis-3/4 flex-col px-2 sm:px-5 md:px-8">
       <div className="my-2 flex items-center justify-between">
         <h5 className="pl-4 text-2xl font-bold text-accentDark">Item Info</h5>
-        <button onClick={handleEditButton}>
+        <button
+          className="rounded-sm border border-sky-200 px-2"
+          onClick={handleEditButton}
+        >
           <CiEdit className="h-7 w-7 text-sky-600 transition hover:scale-110" />
         </button>
         <button onClick={handleDeleteItem}>
