@@ -1,6 +1,7 @@
 import Image from "next/image";
 import heroImage from "../../public/hero-image.svg";
 import Button from "../ui/Button";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -14,10 +15,12 @@ const HeroSection = () => {
           With Passlock Manager, you can effortlessly store, organize, and
           access all your login information in one secure place.
         </p>
-        <Button
-          title="Get started"
-          styles="px-10 mt-2 inline-block rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
-        />
+        <Link href="/demo">
+          <Button
+            title="Get started"
+            styles="px-10 mt-2 inline-block rounded py-2.5 text-white bg-primary hover:bg-primaryDark transition"
+          />
+        </Link>
       </div>
       <div>
         <Image src={heroImage} alt="Hero section image" priority />
