@@ -17,7 +17,7 @@ const AddItemForm = () => {
     formIsOpen,
     setFormIsOpen,
     formType,
-    handleUpdateItem
+    handleUpdateItem,
   } = useContext(AppContext) as Context;
   const formEl = useRef<HTMLFormElement>(null);
 
@@ -58,7 +58,7 @@ const AddItemForm = () => {
 
   return (
     <div
-      className={`absolute inset-0 border border-black bg-black/20 ${formIsOpen ? "" : "scale-0"}`}
+      className={`absolute inset-0 bg-black/20 ${formIsOpen ? "" : "scale-0"}`}
     >
       <form
         ref={formEl}
