@@ -41,10 +41,9 @@ const ItemsList = () => {
             />
           </label>
           <div
-            className={`transition-all max-sm:hidden peer-has-[:checked]:max-sm:block rounded-b-md border-b border-x overflow-hidden border-primaryDark/50`}
+            className={`overflow-hidden rounded-b-md border-x border-b border-primaryDark/50 max-sm:hidden peer-has-[:checked]:max-sm:block sm:hidden`}
           >
             <ItemInfo />
-            {/* <small className="block h-0.5 bg-primary"></small> */}
           </div>
         </article>
       ))}

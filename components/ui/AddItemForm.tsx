@@ -3,6 +3,7 @@
 import { AppContext, Context } from "@/context/Store";
 import { useContext, useEffect, useRef } from "react";
 import InputField from "./InputField";
+import { IoClose } from "react-icons/io5";
 
 const AddItemForm = () => {
   const {
@@ -37,23 +38,11 @@ const AddItemForm = () => {
     setNameField("");
     setUserNameField("");
     setPasswordField("");
+    setFormIsOpen(false);
   };
 
   useEffect(() => {
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
-
-    const handleCloseForm = (e: Event) => {
-      if (formEl.current === null) return;
-      if (!formEl.current.contains(e.target as HTMLFormElement)) {
-        setFormIsOpen(false);
-      }
-    };
-
-    document.body.addEventListener("click", handleCloseForm);
-
-    return () => {
-      document.body.removeEventListener("click", handleCloseForm);
-    };
   }, [itemsList]);
 
   return (
@@ -67,6 +56,12 @@ const AddItemForm = () => {
           e.preventDefault();
         }}
       >
+        <button
+          className="absolute right-2 top-2"
+          onClick={() => setFormIsOpen(false)}
+        >
+          <IoClose className="h-6 w-6 transition hover:scale-110" />
+        </button>
         <div>
           <label htmlFor="name">Name</label>
           <input

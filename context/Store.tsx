@@ -54,7 +54,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
     setSelectedItem(index);
   };
   const handleFormIsOpen = () => {
-    setFormIsOpen((prev) => !prev);
+    setFormIsOpen(true);
   };
 
   const handleUpdateItem = () => {
@@ -66,6 +66,7 @@ const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
     const updatedItemsList = [...itemsList];
     updatedItemsList[selectedItem] = item;
     setItemsList(updatedItemsList);
+    setFormIsOpen(false)
   };
 
   const handleDeleteItem = () => {

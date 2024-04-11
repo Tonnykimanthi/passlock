@@ -45,7 +45,7 @@ const ItemInfo = () => {
         </button>
       </div>
       <AddItemForm />
-      <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>div>input]:font-bold [&>article>div>input]:outline-none [&>article]:grid [&>article]:py-2">
+      <div className="divide-y-[1px] divide-dashed bg-white px-4 [&>article>div>input]:w-full [&>article>div>input]:font-bold [&>article>div>input]:outline-none [&>article>input]:w-full [&>article]:grid [&>article]:py-2">
         {itemsList[selectedItem] && (
           <>
             <article>
