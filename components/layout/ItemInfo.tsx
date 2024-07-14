@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import AddItemForm from "../ui/AddItemForm";
 import { AppContext, Context } from "@/context/Store";
 // Icons
